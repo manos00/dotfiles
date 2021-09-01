@@ -49,7 +49,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "mytheme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "termite"
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -116,7 +116,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
+-- mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
@@ -162,20 +162,20 @@ local tasklist_buttons = gears.table.join(
                                               awful.client.focus.byidx(-1)
                                           end))
 
-local function set_wallpaper(s)
+--local function set_wallpaper(s)
     -- Wallpaper
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
+--    if beautiful.wallpaper then
+--        local wallpaper = beautiful.wallpaper
         -- If wallpaper is a function, call it with the screen
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
-end
+--        if type(wallpaper) == "function" then
+--            wallpaper = wallpaper(s)
+--        end
+--        gears.wallpaper.maximized(wallpaper, s, true)
+--   end
+--end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", set_wallpaper)
+-- screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
@@ -183,7 +183,7 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- default config:
     -- Each screen has its own tag table.
-    -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    -- awful.tag({ "1", "2", "3" }, s, awful.layout.layouts[1])
     
     -- my config:
     local names = {"main", "code", "discord + music"}
@@ -337,6 +337,14 @@ globalkeys = gears.table.join(
     	end,
     {description = "Run dmenu", group = "launcher"}),
 
+    -- firefox
+    awful.key({ modkey }, "b", 
+    	function () 
+    		awful.util.spawn("firefox") 
+    	end,
+    {description = "Open firefox", group = "applications"}),
+
+
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {
@@ -402,7 +410,7 @@ clientkeys = gears.table.join(
 for i = 1, 3 do
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.
-        awful.key({ modkey }, "#" .. i,
+        awful.key({ modkey }, i,
                   function ()
                         local screen = awful.screen.focused()
                         local tag = screen.tags[i]
@@ -412,7 +420,7 @@ for i = 1, 3 do
                   end,
                   {description = "view tag #"..i, group = "tag"}),
         -- Toggle tag display.
-        awful.key({ modkey, "Control" }, "#" .. i,
+        awful.key({ modkey, "Control" }, i,
                   function ()
                       local screen = awful.screen.focused()
                       local tag = screen.tags[i]
@@ -422,7 +430,7 @@ for i = 1, 3 do
                   end,
                   {description = "toggle tag #" .. i, group = "tag"}),
         -- Move client to tag.
-        awful.key({ modkey, "Shift" }, "#" .. i,
+        awful.key({ modkey, "Shift" }, i,
                   function ()
                       if client.focus then
                           local tag = client.focus.screen.tags[i]
@@ -433,7 +441,7 @@ for i = 1, 3 do
                   end,
                   {description = "move focused client to tag #"..i, group = "tag"}),
         -- Toggle tag on focused client.
-        awful.key({ modkey, "Control", "Shift" }, "#" .. i,
+        awful.key({ modkey, "Control", "Shift" }, i,
                   function ()
                       if client.focus then
                           local tag = client.focus.screen.tags[i]
@@ -513,7 +521,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -578,13 +586,16 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = false})
-end)
+--client.connect_signal("mouse::enter", function(c)
+--    c:emit_signal("request::activate", "mouse_enter", {raise = false})
+--end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- Gaps
+beautiful.useless_gap = 5
 
 -- Autostart Applications
 awful.spawn.with_shell("nitrogen --restore")
