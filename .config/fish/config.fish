@@ -13,6 +13,7 @@ end
 
 alias gitdot="/usr/bin/git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME"
 alias p="sudo pacman -S"
+alias cm="cmatrix -s -C cyan"
 
 # VARIABLES
 set PATH "$PATH:/home/manos/bin:/usr/local/scripts:/opt"
