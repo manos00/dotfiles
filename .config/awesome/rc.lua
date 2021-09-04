@@ -59,6 +59,9 @@ terminal = "termite"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
+-- Scripts folder
+scripts = "/usr/local/scripts/"
+
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
@@ -344,12 +347,31 @@ globalkeys = gears.table.join(
     	end,
     {description = "Run dmenu", group = "launcher"}),
 
+    -- dmenu scripts
+    awful.key({ modkey, "Shift"}, "b", 
+    	function ()
+		awful.util.spawn(scripts .. "dmenu/dmenubookmarks.sh")
+    	end,
+    {description = "Browse bookmarks", group = "dmenu scripts"}),
+
+
     -- firefox
     awful.key({ modkey }, "b", 
     	function () 
     		awful.util.spawn("firefox") 
     	end,
     {description = "Open firefox", group = "applications"}),
+
+    -- spotify
+    awful.key({ modkey, "Shift"}, "m", 
+    	function ()
+		local checkp = io.popen("ps -e | grep spotify")
+		local checks = checkp:read("*a") 
+		if(checks == "") then
+    			awful.util.spawn("spotify")
+		end
+    	end,
+    {description = "Open spotify", group = "applications"}),
 
 
     awful.key({ modkey }, "x",
@@ -396,19 +418,19 @@ clientkeys = gears.table.join(
             c.maximized = not c.maximized
             c:raise()
         end ,
-        {description = "(un)maximize", group = "client"}),
-    awful.key({ modkey, "Control" }, "m",
-        function (c)
-            c.maximized_vertical = not c.maximized_vertical
-            c:raise()
-        end ,
-        {description = "(un)maximize vertically", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "m",
-        function (c)
-            c.maximized_horizontal = not c.maximized_horizontal
-            c:raise()
-        end ,
-        {description = "(un)maximize horizontally", group = "client"})
+        {description = "(un)maximize", group = "client"})
+--    awful.key({ modkey, "Control" }, "m",
+--        function (c)
+--            c.maximized_vertical = not c.maximized_vertical
+--            c:raise()
+--        end ,
+--        {description = "(un)maximize vertically", group = "client"}),
+--    awful.key({ modkey, "Shift"   }, "m",
+--        function (c)
+--            c.maximized_horizontal = not c.maximized_horizontal
+--            c:raise()
+--        end ,
+--        {description = "(un)maximize horizontally", group = "client"})
 )
 
 -- Bind all key numbers to tags.
