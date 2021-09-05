@@ -191,15 +191,48 @@ awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     -- set_wallpaper(s)
 
-    -- default config:
-    -- Each screen has its own tag table.
-    -- awful.tag({ "1", "2", "3" }, s, awful.layout.layouts[1])
-    
-    -- my config:
-    local names = {"main", "code", "discord + music"}
-    local l = awful.layout.suit --just an alias
-    local layouts = {l.tile.left, l.tile.bottom, l.max}
-    awful.tag(names, s, layouts)
+-- default config:
+-- Each screen has its own tag table.
+-- awful.tag({ "1", "2", "3" }, s, awful.layout.layouts[1])
+
+-- my config:
+local l = awful.layout.suit --just an alias
+local icons = "/home/manos/Pictures/icons/"
+-- local names = {"main", "code", "discord + music"}
+-- local layouts = {l.tile.left, l.tile.bottom, l.max}
+-- awful.tag(names, s, layouts)
+
+awful.tag.add("main", {
+	icon		= icons .. "home.png",
+	layout		= l.tile.left,
+	screen		= s,
+	selected	= true,
+    })
+
+awful.tag.add("code", {
+	icon		= icons .. "code.png",
+	layout		= l.tile.bottom,
+	screen		= s,
+    })
+
+awful.tag.add("music", {
+	icon		= icons .. "spotify.png",
+	layout		= l.tile.bottom,
+	screen		= s,
+    })
+
+awful.tag.add("gaming", {
+	icon		= icons .. "gaming.png",
+	layout		= l.max,
+	screen		= s,
+    })
+
+awful.tag.add("discord", {
+	icon		= icons .. "discord.png",
+	layout		= l.max,
+	screen		= s,
+    })
+
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -436,7 +469,7 @@ clientkeys = gears.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 3 do
+for i = 1, 5 do
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, i,

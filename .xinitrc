@@ -48,6 +48,5 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-loadkeys de-latin1
 picom --config $HOME/.config/picom/picom.conf &
 exec awesome
