@@ -406,6 +406,20 @@ globalkeys = gears.table.join(
     	end,
     {description = "Open spotify", group = "applications"}),
 
+    -- volume
+    awful.key({ modkey }, "F6", 
+        function ()
+    		os.execute(scripts .. "chvolawesome -5%") 
+    	end,
+    {description = "Decrease volume by 5", group = "sound"}),
+    
+    awful.key({ modkey }, "F7", 
+        function ()
+    		os.execute(scripts .. "chvolawesome +5%") 
+    	end,
+    {description = "Increase volume by 5", group = "sound"}),
+
+
 
     awful.key({ modkey }, "x",
               function ()
