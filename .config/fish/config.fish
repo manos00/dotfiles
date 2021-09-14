@@ -15,6 +15,8 @@ alias v="vim"
 alias gitdot="/usr/bin/git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME"
 alias p="sudo pacman -S"
 alias cm="cmatrix -s -C cyan" #most important one obviously
+alias cmmt="git commit -a -m "
+alias psh="git push origin master"
 
 # VARIABLES
 set PATH "$PATH:/home/manos/bin:/usr/local/scripts:/opt"
