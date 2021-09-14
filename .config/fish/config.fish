@@ -15,6 +15,8 @@ alias v="vim"
 alias gitdot="/usr/bin/git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME"
 alias p="sudo pacman -S"
 alias cm="cmatrix -s -C cyan" #most important one obviously
+alias dtcmmt="git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME commit -a -m "
+alias dtpsh="gitdot --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME push origin master"
 alias cmmt="git commit -a -m "
 alias psh="git push origin master"
 
