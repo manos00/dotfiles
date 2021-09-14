@@ -259,26 +259,26 @@ awful.tag.add("discord", {
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    --s.mywibox = awful.wibar({ position = "top", screen = s })
 
-    -- Add widgets to the wibox
-    s.mywibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            mylauncher,
-            s.mytaglist,
-            s.mypromptbox,
-        },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
-            wibox.widget.systray(),
-            mytextclock,
-            s.mylayoutbox,
-        },
-    }
+    --Add widgets to the wibox
+   -- s.mywibox:setup {
+   --    layout = wibox.layout.align.horizontal,
+   --     { -- Left widgets
+   --         layout = wibox.layout.fixed.horizontal,
+   --         mylauncher,
+   --         s.mytaglist,
+   --         s.mypromptbox,
+   --     },
+   --     s.mytasklist, -- Middle widget
+   --     { -- Right widgets
+   --         layout = wibox.layout.fixed.horizontal,
+   --         mykeyboardlayout,
+   --         wibox.widget.systray(),
+   --         mytextclock,
+   --         s.mylayoutbox,
+   --     },
+   -- }
 end)
 -- }}}
 
@@ -675,5 +675,6 @@ beautiful.useless_gap = 5
 
 -- Autostart Applications
 awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("$HOME/.config/polybar/launch")
 -- awful.spawn.with_shell("python3 /home/manos/Documents/discordbot/main.py &")
 -- awful.spawn.with_shell("python3 /home/manos/Documents/python/imgdataanalysis/main.py &")
