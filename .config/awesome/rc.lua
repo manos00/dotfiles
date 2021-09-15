@@ -21,6 +21,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable collision
 require("collision")()
 
+-- Set to true/false to en-/disable polybar
+local polybar = true
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -191,46 +194,46 @@ awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     -- set_wallpaper(s)
 
--- default config:
--- Each screen has its own tag table.
--- awful.tag({ "1", "2", "3" }, s, awful.layout.layouts[1])
-
--- my config:
-local l = awful.layout.suit --just an alias
-local icons = "/home/manos/Pictures/icons/"
--- local names = {"main", "code", "discord + music"}
--- local layouts = {l.tile.left, l.tile.bottom, l.max}
--- awful.tag(names, s, layouts)
-
-awful.tag.add("main", {
-	icon		= icons .. "home.png",
-	layout		= l.tile.left,
-	screen		= s,
-	selected	= true,
+    -- default config:
+    -- Each screen has its own tag table.
+    -- awful.tag({ "1", "2", "3" }, s, awful.layout.layouts[1])
+    
+    -- my config:
+    local l = awful.layout.suit --just an alias
+    local icons = "/home/manos/Pictures/icons/"
+    -- local names = {"main", "code", "discord + music"}
+    -- local layouts = {l.tile.left, l.tile.bottom, l.max}
+    -- awful.tag(names, s, layouts)
+    
+    awful.tag.add("main", {
+    	icon		= icons .. "home.png",
+    	layout		= l.tile.left,
+    	screen		= s,
+    	selected	= true,
     })
-
-awful.tag.add("code", {
-	icon		= icons .. "code.png",
-	layout		= l.tile.bottom,
-	screen		= s,
+    
+    awful.tag.add("code", {
+    	icon		= icons .. "code.png",
+    	layout		= l.tile.bottom,
+    	screen		= s,
     })
-
-awful.tag.add("music", {
-	icon		= icons .. "spotify.png",
-	layout		= l.tile.bottom,
-	screen		= s,
+    
+    awful.tag.add("music", {
+    	icon		= icons .. "spotify.png",
+    	layout		= l.tile.bottom,
+    	screen		= s,
     })
-
-awful.tag.add("gaming", {
-	icon		= icons .. "gaming.png",
-	layout		= l.max,
-	screen		= s,
+    
+    awful.tag.add("gaming", {
+    	icon		= icons .. "gaming.png",
+    	layout		= l.max,
+    	screen		= s,
     })
-
-awful.tag.add("discord", {
-	icon		= icons .. "discord.png",
-	layout		= l.max,
-	screen		= s,
+    
+    awful.tag.add("discord", {
+    	icon		= icons .. "discord.png",
+    	layout		= l.max,
+    	screen		= s,
     })
 
 
@@ -258,28 +261,31 @@ awful.tag.add("discord", {
         buttons = tasklist_buttons
     }
 
+    if(polybar == false) then
     -- Create the wibox
-    --s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "top", screen = s })
 
     --Add widgets to the wibox
-   -- s.mywibox:setup {
-   --    layout = wibox.layout.align.horizontal,
-   --     { -- Left widgets
-   --         layout = wibox.layout.fixed.horizontal,
-   --         mylauncher,
-   --         s.mytaglist,
-   --         s.mypromptbox,
-   --     },
-   --     s.mytasklist, -- Middle widget
-   --     { -- Right widgets
-   --         layout = wibox.layout.fixed.horizontal,
-   --         mykeyboardlayout,
-   --         wibox.widget.systray(),
-   --         mytextclock,
-   --         s.mylayoutbox,
-   --     },
-   -- }
-end)
+    s.mywibox:setup {
+       layout = wibox.layout.align.horizontal,
+        { -- Left widgets
+            layout = wibox.layout.fixed.horizontal,
+            mylauncher,
+            s.mytaglist,
+            s.mypromptbox,
+        },
+        s.mytasklist, -- Middle widget
+        { -- Right widgets
+            layout = wibox.layout.fixed.horizontal,
+            mykeyboardlayout,
+            wibox.widget.systray(),
+            mytextclock,
+            s.mylayoutbox,
+        },
+    }
+    end
+end
+)
 -- }}}
 
 -- {{{ Mouse bindings
@@ -564,6 +570,11 @@ awful.rules.rules = {
      }
     },
 
+    -- Remove border from polybar
+    { rule_any = {instance = { "polybar" }},
+    properties = { border_width = 0 }
+    },
+
     -- Floating clients.
     { rule_any = {
         instance = {
@@ -675,6 +686,10 @@ beautiful.useless_gap = 5
 
 -- Autostart Applications
 awful.spawn.with_shell("nitrogen --restore")
-awful.spawn.with_shell("$HOME/.config/polybar/launch")
+if(polybar == true) then
+	awful.spawn.with_shell("$HOME/.config/polybar/launch")
+else
+	os.execute("killall -q polybar")
+end
 -- awful.spawn.with_shell("python3 /home/manos/Documents/discordbot/main.py &")
 -- awful.spawn.with_shell("python3 /home/manos/Documents/python/imgdataanalysis/main.py &")
