@@ -57,7 +57,7 @@ font-2 = Weather Icons:size=12;1
 
 modules-left = 
 modules-center = spotify
-modules-right = openweathermap-simple cpu memory wlan info-trash date
+modules-right = openweathermap-simple updates-aurhelper cpu memory wlan info-trash date
 ; removed = xbacklight xkeyboard battery powermenu alsa pulseaudio memory cpu wlan eth temperature 
 
 
