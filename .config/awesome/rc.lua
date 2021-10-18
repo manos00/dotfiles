@@ -389,7 +389,7 @@ globalkeys = gears.table.join(
     -- dmenu scripts
     awful.key({ modkey, "Shift"}, "b", 
     	function ()
-		awful.util.spawn(scripts .. "dmenu/dmenubookmarks.sh")
+		awful.util.spawn(scripts .. "dmenu/bookmarks.sh")
     	end,
     {description = "Browse bookmarks", group = "dmenu scripts"}),
 

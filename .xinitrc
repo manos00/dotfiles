@@ -48,5 +48,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+bu-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORIT_
 picom --config $HOME/.config/picom/picom.conf &
+nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
 exec awesome
