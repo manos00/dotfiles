@@ -57,11 +57,9 @@ font-2 = Weather Icons:size=12;1
 font-3 = icomoon:size=11;0
 font-4 = siji:pixelsize=12;1
 
-modules-left = 
+modules-left = dmenu cpu memory sshdchecker
 modules-center = spotify
-modules-right = openweathermap-simple updates-aurhelper cpu memory sshdchecker wlan info-trash date
-; removed = xbacklight xkeyboard battery powermenu alsa pulseaudio memory cpu wlan eth temperature 
-
+modules-right = openweathermap-simple updates-aurhelper wlan info-trash date powermenu
 
 tray-position = right
 tray-padding = 3
@@ -108,14 +106,20 @@ label-font = 3
 ;https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/updates-aurhelper
 type = custom/script
 exec = ~/polybar-scripts/updates-aurhelper.sh
-interval = 600
-click-left = ~/polybar-scripts/updates-aurhelper.sh
+interval = 55
+
+[module/dmenu]
+type = custom/dmenu
+;label-open = " hey "
+format-prefix = "test"
+format = <label>
+click-left = dmenu
 
 [module/spotify]
 ;https://github.com/Jvanrhijn/polybar-spotify
 type = custom/script
 interval = 1
-format-prefix = " "
+format-prefix = "   "
 format = <label>
 exec = python ~/polybar-scripts/spotify_status.py -f '{artist} - {song}'
 format-underline = #1db954
@@ -340,7 +344,7 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = 
 label-open-foreground = ${colors.secondary}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
@@ -355,10 +359,10 @@ menu-0-1-exec = menu-open-2
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
+menu-1-1-exec = reboot
 
 menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
+menu-2-0-exec = poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
@@ -372,6 +376,6 @@ screenchange-reload = true
 
 [global/wm]
 margin-top = 5
-margin-bottom = 5
+margin-bottom = 0
 
 ; vim:ft=dosini

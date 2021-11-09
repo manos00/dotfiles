@@ -58,7 +58,7 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "mytheme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "termite"
+terminal = "alacritty"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -220,7 +220,7 @@ awful.screen.connect_for_each_screen(function(s)
     
     awful.tag.add("music", {
     	icon		= icons .. "spotify.png",
-    	layout		= l.tile.bottom,
+    	layout		= l.max,
     	screen		= s,
     })
     
