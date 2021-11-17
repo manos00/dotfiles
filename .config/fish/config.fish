@@ -20,6 +20,8 @@ alias dtpsh="gitdot --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME push orig
 alias cmmt="git commit -a -m "
 alias psh="git push origin master"
 alias randomvid="vlc (random choice (ls | grep -v .jpg | grep -v .png))"
+alias upgrade="yay -Sy && yay -Qu && sleep 3 && yay -Syu"
+alias globfind="sudo find / -name"
 
 # VARIABLES
 set PATH "$PATH:/home/manos/bin:/usr/local/scripts:/opt"
