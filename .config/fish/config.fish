@@ -22,6 +22,12 @@ alias psh="git push origin master"
 alias randomvid="vlc (random choice (ls | grep -v .jpg | grep -v .png))"
 alias upgrade="yay -Sy && yay -Qu && sleep 3 && yay -Syu"
 alias globfind="sudo find / -name"
-
+alias school="firefox https://lms2.schulcampus-rlp.de/SN-51034/ & disown && cd /media/hAmBuRgEr/Libraries/Documents/Schule"
 # VARIABLES
 set PATH "$PATH:/home/manos/bin:/usr/local/scripts:/opt"
+
+# PRINTING
+#$HOME/.pokemon-icat/pokemon-icat.sh
+
+# PROGRAMS
+starship init fish | source
