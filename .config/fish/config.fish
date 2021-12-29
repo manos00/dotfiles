@@ -23,6 +23,8 @@ alias randomvid="vlc (random choice (ls | grep -v .jpg | grep -v .png))"
 alias upgrade="yay -Sy && yay -Qu && sleep 3 && yay -Syu"
 alias globfind="sudo find / -name"
 alias school="firefox https://lms2.schulcampus-rlp.de/SN-51034/ & disown && cd /media/hAmBuRgEr/Libraries/Documents/Schule"
+alias execomp="x86_64-w64-mingw32-gcc"
+
 # VARIABLES
 set PATH "$PATH:/home/manos/bin:/usr/local/scripts:/opt"
 
