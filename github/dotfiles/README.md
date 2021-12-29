@@ -10,9 +10,11 @@
 - picom
 - polybar
 - spicetify-cli
+#### configs for my specific setup
+- OpenRGB
 ### Dependencies:
 #### Polybar
-- Custom icon font
+- Custom icon font (not available for download, may need to replace icons in config)
 #### Spicetify-cli
 - [Dribbblish theme](https://github.com/morpheusthewhite/spicetify-themes/tree/master/Dribbblish)
 ### To use the config files in this repository correctly, follow these steps:
