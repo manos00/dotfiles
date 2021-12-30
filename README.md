@@ -18,6 +18,9 @@
 #### Spicetify-cli
 - [Dribbblish theme](https://github.com/morpheusthewhite/spicetify-themes/tree/master/Dribbblish)
 ### To use the config files in this repository correctly, follow these steps:
+### Option 1 - Use the following command to launch the install script:
+``wget -O https://raw.githubusercontent.com/manos00/dotfiles/master/github/dotfiles/install.sh |bash``
+### Option 2 - Follow these steps to install manually (in case the script doesn't work):
 #### Step 1:
 - Run the following command to clone this repository as a bare repository:
 
