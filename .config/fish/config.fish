@@ -12,7 +12,7 @@ if string match -q "*kitty*" $TERM
 end
 
 alias v="vim"
-alias gitdot="/usr/bin/git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME"
+alias config="/usr/bin/git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME"
 alias p="sudo pacman -S"
 alias cm="cmatrix -s -C cyan" #most important one obviously
 alias dtcmmt="git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME commit -a -m "
@@ -24,9 +24,10 @@ alias upgrade="yay -Sy && yay -Qu && sleep 3 && yay -Syu"
 alias globfind="sudo find / -name"
 alias school="firefox https://lms2.schulcampus-rlp.de/SN-51034/ & disown && cd /media/hAmBuRgEr/Libraries/Documents/Schule"
 alias execomp="x86_64-w64-mingw32-gcc"
+alias del="rmtrash"
 
 # VARIABLES
-set PATH "$PATH:/home/manos/bin:/usr/local/scripts:/opt"
+set PATH "$PATH:$HOME/bin:/usr/local/scripts:/opt"
 
 # PRINTING
 #$HOME/.pokemon-icat/pokemon-icat.sh
