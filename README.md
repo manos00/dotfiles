@@ -1,14 +1,15 @@
 # dotfiles
 ## My Arch Linux dotfiles :)
 ### Repository contains configs for the following programs:
-- awesome
+- [awesome](https://awesomewm.org/)
 - bash
-- fish
-- alacritty
-- termite
-- picom
-- polybar
-- spicetify-cli
+- [fish](https://github.com/fish-shell/fish-shell)
+- [alacritty](https://github.com/alacritty/alacritty)
+- [termite](https://github.com/thestinger/termite/)
+- [picom](https://github.com/yshui/picom)
+- [polybar](https://github.com/polybar/polybar)
+- [spicetify-cli](https://github.com/khanhas/spicetify-cli)
+- [starship](https://github.com/starship/starship)
 #### configs for my specific setup
 - OpenRGB
 ### Dependencies:
