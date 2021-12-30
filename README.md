@@ -4,7 +4,6 @@
 - awesome
 - bash
 - fish
-- firefox
 - alacritty
 - termite
 - picom
