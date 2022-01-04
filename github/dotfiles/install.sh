@@ -19,6 +19,7 @@ else
 	mkdir -p $HOME/github/dotfiles/ && git clone --bare https://github.com/manos00/dotfiles $HOME/github/dotfiles
 	conf="/bin/env git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME"
 	# try to put dotfiles in their respective dirs (+redirect sterr to log file)
+	echo "trying to put files in their respective directories"
 	cd $HOME && $conf checkout 2> $LOG
 	if [[ $? == 1 ]];then
 		l=$(wc -l < $LOG)
@@ -56,12 +57,20 @@ else
 			echo "Enter 'y' to proceed."
 			read choice
 			if [[ $choice == "y" ]];then
-				mv $file $backup
+				echo "backing up files"
+				for file in ${BADFILES[@]};do
+					mv $file $backup
+				done
+				echo "backup completed"
 			else
-				echo Aborting...
+				echo "Aborting..."
 				exit 1
 			fi
+			echo "performing git checkout"
+			echo "moving files into their respective directory"
 			cd $HOME && $conf checkout 2> $LOG
+			echo "done!"
+			echo "exiting..."
 			exit 0
 		else
 			echo An unknown error occured!
