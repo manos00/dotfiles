@@ -9,15 +9,21 @@ if [[ -d "$HOME/github/dotfiles" ]];then
 	echo "Directory $HOME/github/dotfiles already exists."
 	exit 1
 else
+	# setting frequently used vars
 	LOG="/tmp/checkout-err.txt"
 	ERRORL1="error: The following untracked working tree files would be overwritten by checkout:"
 	ERRORLX="Please move or remove them before you switch branches."
+	# setting up trap - deletese log on exit
 	trap "rm -f $LOG" EXIT
+	# clone repo
 	mkdir -p $HOME/github/dotfiles/ && git clone --bare https://github.com/manos00/dotfiles $HOME/github/dotfiles
 	conf="/bin/env git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME"
+	# try to put dotfiles in their respective dirs (+redirect sterr to log file)
 	cd $HOME && $conf checkout 2> $LOG
 	if [[ $? == 1 ]];then
 		l=$(wc -l < $LOG)
+		# read first line of log to check if its the one error i accounted for lol
+		# there are defenetly way better ways to do this but i couldnt figure out something else
 		if [[ $(sed '1q;d' $LOG) == $ERRORL1 ]];then
 			BADFILES=()
 			echo There are conflicting files:
@@ -25,28 +31,36 @@ else
 				if [[ $(sed "${i}q;d" $LOG) != $ERRORLX ]];then
 					line="$(sed "${i}q;d" $LOG)"
 					echo $line | sed 's/ //g'
+					# append conflicting file paths to BADFILES
 					BADFILES+=$line
 				else
+					# break if list of file paths ends
 					break
 				fi
 			done
-			# changing input
+			# changing input source
 			exec < /dev/tty
-			# Choose which files to backup or delete
+			# decide whether to back up files or proceed manually
+			echo "Do you want to backup the following files: (y/n)"
 			for file in ${BADFILES[@]};do
-				echo "Do you want to backup $file? (y/n)" 
-				read -p choice
-				if [[ $choice == "y" ]];then
-					backup=$HOME/dotfilesbackup
-					if [[ ! -d $backup ]];then	
-						mkdir $backup
-					fi
-					mv $file $backup
-				else
-					echo Aborting...
-					exit 0
-				fi
- 			done
+				echo $file
+			done
+			backup=$HOME/dotfilesbackup
+			echo "The files will be saved to $backup"
+			if [[ ! -d $backup ]];then	
+				mkdir $backup
+			else
+				echo "As the directory $backup already exists, please check its contents."
+				echo "Files in $backup may otherwise be OVERWRITTEN without further warning"
+			fi
+
+			read -p choice
+			if [[ $choice == "y" ]];then
+				mv $file $backup
+			else
+				echo Aborting...
+				exit 1
+			fi
 			cd $HOME && $conf checkout 2> $LOG
 			exit 0
 		else
