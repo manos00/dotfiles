@@ -10,6 +10,6 @@ if [[ -d "$HOME/github/dotfiles" ]];then
 else
 	mkdir -p $HOME/github/dotfiles/ && git clone --bare https://github.com/manos00/dotfiles $HOME/github/dotfiles
 	conf="/bin/env git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME"
-	cd $HOME && $(conf checkout)
+	cd $HOME && $($conf checkout)
 	exit 0
 fi
