@@ -34,7 +34,7 @@ else
 			for file in ${BADFILES[@]};do
 				echo "Do you want to backup $file? (y/n)" 
 				choice=""
-				while [[ $choice != "y" && $choice != "n" ]];do
+				while [[ $choice != "y" ]] && [[ $choice != "n" ]];do
 					read choice
 				done
 				if [[ $choice == "y" ]];then
