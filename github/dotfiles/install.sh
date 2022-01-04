@@ -30,6 +30,8 @@ else
 					break
 				fi
 			done
+			# changing input
+			exec < /dev/tty
 			# Choose which files to backup or delete
 			for file in ${BADFILES[@]};do
 				echo "Do you want to backup $file? (y/n)" 
@@ -46,6 +48,7 @@ else
 				fi
  			done
 			cd $HOME && $conf checkout 2> $LOG
+			exit 0
 		else
 			echo An unknown error occured!
 			cat $LOG
