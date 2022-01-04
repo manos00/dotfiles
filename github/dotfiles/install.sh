@@ -8,8 +8,28 @@ if [[ -d "$HOME/github/dotfiles" ]];then
 	echo "Directory $HOME/github/dotfiles already exists."
 	exit 1
 else
+	LOG="/tmp/checkout-err.txt"
+	ERRORL1="error: The following untracked working tree files would be overwritten by checkout:"
+	ERRORLX="Please move or remove them before you switch branches."
+	#trap "rm -f $LOG" EXIT
 	mkdir -p $HOME/github/dotfiles/ && git clone --bare https://github.com/manos00/dotfiles $HOME/github/dotfiles
 	conf="/bin/env git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME"
-	cd $HOME && $($conf checkout)
-	exit 0
+	cd $HOME && $conf checkout 2> $LOG
+	if [[ $? == 1 ]];then
+		l=$(wc -l < $LOG)
+		if [[ $(sed '1q;d' $LOG) == $ERRORL1 ]];then
+			echo There are conflicting files:
+			for i in $(seq 2 $l);do
+				if [[ $(sed "${i}q;d" $LOG) != $ERRORLX ]];then
+					line="$(sed "${i}q;d" $LOG)"
+					echo $line | sed 's/ //g' 
+				else
+					break
+				fi
+			done
+		fi
+		exit 1
+	else
+		exit 0
+	fi
 fi
