@@ -4,13 +4,13 @@ personal todo list for this repo :)
 
 ### Todo
 
-- [ ] setup script conflicting file problem (checkout)
-  - [ ] $? -> 1 -> ask for individual conflicting file
-  - [ ] create backup of file or skip
-- [ ] work on README
-  - [ ] add pictures
-  - [ ] further explain "installation process"
+nothing?
 
 ### Done ✓
 
+- [x] setup script conflicting file problem (checkout)  
+  - [x] $? -> 1 -> ask for individual conflicting file  
+- [x] work on README  
+  - [x] add pictures  
+  - [x] further explain "installation process"  
 
