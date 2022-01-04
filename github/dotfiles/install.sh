@@ -33,10 +33,7 @@ else
 			# Choose which files to backup or delete
 			for file in ${BADFILES[@]};do
 				echo "Do you want to backup $file? (y/n)" 
-				choice=""
-				while [[ $choice != "y" ]] && [[ $choice != "n" ]];do
-					read choice
-				done
+				read choice
 				if [[ $choice == "y" ]];then
 					backup=$HOME/dotfilesbackup
 					if [[ ! -d $backup ]];then	
