@@ -10,6 +10,7 @@
 - [polybar](https://github.com/polybar/polybar)
 - [spicetify-cli](https://github.com/khanhas/spicetify-cli)
 - [starship](https://github.com/starship/starship)
+- I also included my [wallpaper](https://github.com/manos00/dotfiles/blob/master/github/dotfiles/outtatime.jpg), if you like it you may want to check out my [wallpapers repo](https://github.com/manos00/wallpapers) :)
 ### configs for my specific setup
 - [OpenRGB](https://github.com/CalcProgrammer1/OpenRGB)
 
