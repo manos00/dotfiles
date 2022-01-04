@@ -42,10 +42,7 @@ else
 			# changing input source
 			exec < /dev/tty
 			# decide whether to back up files or proceed manually
-			echo "Do you want to backup the following files:"
-			for file in ${BADFILES[@]};do
-				echo $file
-			done
+			echo "Do you want to back them up automatically?"
 			backup=$HOME/dotfilesbackup
 			echo "The files will be saved to $backup"
 			if [[ ! -d $backup ]];then	
