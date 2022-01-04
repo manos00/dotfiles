@@ -389,7 +389,7 @@ globalkeys = gears.table.join(
     -- dmenu scripts
     awful.key({ modkey, "Shift"}, "b", 
     	function ()
-		awful.util.spawn(scripts .. "dmenu/bookmarks.sh")
+		awful.util.spawn(scripts .. "dmenu/bookmarksmin.sh")
     	end,
     {description = "Browse bookmarks", group = "dmenu scripts"}),
 
@@ -405,12 +405,12 @@ globalkeys = gears.table.join(
     	end,
     {description = "Quickly change audio output device", group = "dmenu scripts"}),
 
-    -- firefox
+    -- browser
     awful.key({ modkey }, "b", 
     	function () 
-    		awful.util.spawn("firefox") 
+    		awful.util.spawn("min") 
     	end,
-    {description = "Open firefox", group = "applications"}),
+    {description = "Open minbrowser", group = "applications"}),
 
     -- spotify
     awful.key({ modkey, "Shift"}, "m", 
