@@ -41,7 +41,7 @@ else
 			# changing input source
 			exec < /dev/tty
 			# decide whether to back up files or proceed manually
-			echo "Do you want to backup the following files: (y/n)"
+			echo "Do you want to backup the following files:"
 			for file in ${BADFILES[@]};do
 				echo $file
 			done
@@ -53,8 +53,8 @@ else
 				echo "As the directory $backup already exists, please check its contents."
 				echo "Files in $backup may otherwise be OVERWRITTEN without further warning"
 			fi
-
-			read -p choice
+			echo "Enter 'y' to proceed."
+			read choice
 			if [[ $choice == "y" ]];then
 				mv $file $backup
 			else
