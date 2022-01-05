@@ -4,7 +4,14 @@ personal todo list for this repo :)
 
 ### Todo
 
-nothing?
+- [ ] add consistant color scheme across programs
+  - [ ] awesome
+  - [ ] alacritty
+  - [ ] termite
+  - [ ] spicetify
+  - [ ] starship
+  - [ ] wallpaper (change maybe?)
+  - [ ] (polybar?)
 
 ### Done ✓
 
