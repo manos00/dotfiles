@@ -12,6 +12,7 @@ personal todo list for this repo :)
   - [ ] starship
   - [ ] wallpaper (change maybe?)
   - [ ] (polybar?)
+- [ ] add omf stuff
 
 ### Done ✓
 
