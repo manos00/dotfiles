@@ -21,4 +21,4 @@ personal todo list for this repo :)
 - [x] work on README  
   - [x] add pictures  
   - [x] further explain "installation process"  
-
+- [x] swap dribbblish for dribbblish-dynamic

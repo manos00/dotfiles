@@ -23,7 +23,7 @@
 ### Polybar
 - Custom icon font (not available for download, may need to replace icons in config)
 ### Spicetify-cli
-- [Dribbblish theme](https://github.com/morpheusthewhite/spicetify-themes/tree/master/Dribbblish)
+- [Dribbblish-dynamic theme](https://github.com/JulienMaille/dribbblish-dynamic-theme)
 
 ## Installation
 The first option is to just use the install script I made, which basically moves the files in their respective directories and backs up any conflicting files in the process.
