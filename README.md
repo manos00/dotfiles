@@ -20,10 +20,12 @@
 ![Demo screenshot 2](github/dotfiles/demo2.png)
 
 ## Dependencies
-### Polybar
+polybar:
 - Custom icon font (not available for download, may need to replace icons in config)
-### Spicetify-cli
+spicetify-cli:
 - [Dribbblish-dynamic theme](https://github.com/JulienMaille/dribbblish-dynamic-theme)
+awesome:
+- [collision](https://github.com/manos00/collision), a management module for floating windows (not specifically my fork)
 
 ## Installation
 The first option is to just use the install script I made, which basically moves the files in their respective directories and backs up any conflicting files in the process.
