@@ -25,6 +25,7 @@ alias globfind="sudo find / -name"
 alias school="firefox https://lms2.schulcampus-rlp.de/SN-51034/ & disown && cd /media/hAmBuRgEr/Libraries/Documents/Schule"
 alias execomp="x86_64-w64-mingw32-gcc"
 alias del="rmtrash"
+alias rm="echo use rmtrash/del"
 
 # VARIABLES
 set PATH "$PATH:$HOME/bin:/usr/local/scripts:/opt"
