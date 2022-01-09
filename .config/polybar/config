@@ -81,7 +81,7 @@ cursor-scroll = ns-resize
 
 [module/sshdchecker]
 type = custom/script
-exec = ~/polybar-scripts/sshdchecker users &
+exec = ~/polybar-scripts/sshdchecker users
 format-prefix = " "
 interval = 60
 
@@ -92,7 +92,7 @@ exec = ~/polybar-scripts/info-trash.sh
 format-prefix = " "
 ;label-font = 4
 interval = 60
-click-left = ~/polybar-scripts/info-trash.sh --clean &
+click-left = ~/polybar-scripts/info-trash.sh --clean
 
 [module/openweathermap-simple]
 ;https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/openweathermap-simple
@@ -105,7 +105,7 @@ label-font = 3
 [module/updates-aurhelper]
 ;https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/updates-aurhelper
 type = custom/script
-exec = ~/polybar-scripts/updates-aurhelper.sh &
+exec = ~/polybar-scripts/updates-aurhelper.sh
 interval = 55
 
 [module/dmenu]
