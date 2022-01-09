@@ -12,7 +12,6 @@ personal todo list for this repo :)
   - [ ] starship
   - [ ] wallpaper (change maybe?)
   - [ ] (polybar?)
-- [ ] add omf stuff
 
 ### Done ✓
 
@@ -22,3 +21,4 @@ personal todo list for this repo :)
   - [x] add pictures  
   - [x] further explain "installation process"  
 - [x] swap dribbblish for dribbblish-dynamic
+- [x] add omf stuff (created a fork instead of putting stuff in here)
