@@ -10,6 +10,6 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 # Variables
-export PATH="/usr/local/scripts/:$PATH"
+export PATH="/opt/:/usr/local/scripts/:$PATH"
 
 eval "$(starship init bash)"
