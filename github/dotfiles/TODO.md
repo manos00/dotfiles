@@ -12,6 +12,8 @@ personal todo list for this repo :)
   - [ ] starship
   - [ ] wallpaper (change maybe?)
   - [ ] (polybar?)
+- [ ] add polybar scripts to dotfiles (or make repo public and add link to readme)
+
 
 ### Done ✓
 
