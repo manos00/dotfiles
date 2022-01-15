@@ -20,6 +20,7 @@ alias globfind="sudo find / -name"
 alias gccexe="x86_64-w64-mingw32-gcc"
 alias del="rmtrash"
 alias rm="echo use rmtrash/del"
+alias ls="exa"
 
 # VARIABLES
 set PATH "$PATH:$HOME/bin:/usr/local/scripts:/opt"
