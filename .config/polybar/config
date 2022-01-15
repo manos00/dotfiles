@@ -81,7 +81,7 @@ cursor-scroll = ns-resize
 
 [module/sshdchecker]
 type = custom/script
-exec = ~/polybar-scripts/sshdchecker users
+exec = ~/github/polybar-scripts/sshdchecker users
 format-prefix = " "
 interval = 60
 
@@ -90,54 +90,54 @@ interval = 60
 [module/1]
 type = custom/script
 interval = 1
-exec = ~/polybar-scripts/awesomewmtags 1
-click-left = ~/polybar-scripts/awesomewmtags --switch 1
+exec = ~/github/polybar-scripts/awesomewmtags 1
+click-left = ~/github/polybar-scripts/awesomewmtags --switch 1
 
 [module/2]
 type = custom/script
 interval = 1
-exec = ~/polybar-scripts/awesomewmtags 2
-click-left = ~/polybar-scripts/awesomewmtags --switch 2
+exec = ~/github/polybar-scripts/awesomewmtags 2
+click-left = ~/github/polybar-scripts/awesomewmtags --switch 2
 
 [module/3]
 type = custom/script
 interval = 1
-exec = ~/polybar-scripts/awesomewmtags 3
-click-left = ~/polybar-scripts/awesomewmtags --switch 3
+exec = ~/github/polybar-scripts/awesomewmtags 3
+click-left = ~/github/polybar-scripts/awesomewmtags --switch 3
 
 [module/4]
 type = custom/script
 interval = 1
-exec = ~/polybar-scripts/awesomewmtags 4
-click-left = ~/polybar-scripts/awesomewmtags --switch 4
+exec = ~/github/polybar-scripts/awesomewmtags 4
+click-left = ~/github/polybar-scripts/awesomewmtags --switch 4
 
 [module/5]
 type = custom/script
 interval = 1
-exec = ~/polybar-scripts/awesomewmtags 5
-click-left = ~/polybar-scripts/awesomewmtags --switch 5
+exec = ~/github/polybar-scripts/awesomewmtags 5
+click-left = ~/github/polybar-scripts/awesomewmtags --switch 5
 
 [module/info-trash]
-;https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/info-trash
+;https://github.com/polybar/github/polybar-scripts/tree/master/github/polybar-scripts/info-trash
 type = custom/script
-exec = ~/polybar-scripts/info-trash.sh
+exec = ~/github/polybar-scripts/info-trash.sh
 format-prefix = " "
 ;label-font = 4
 interval = 60
-click-left = ~/polybar-scripts/info-trash.sh --clean
+click-left = ~/github/polybar-scripts/info-trash.sh --clean
 
 [module/openweathermap-simple]
-;https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/openweathermap-simple
+;https://github.com/polybar/github/polybar-scripts/tree/master/github/polybar-scripts/openweathermap-simple
 ;https://github.com/erikflowers/weather-icons
 type = custom/script
-exec = ~/polybar-scripts/openweathermap-simple.sh
+exec = ~/github/polybar-scripts/openweathermap-simple.sh
 interval = 3600
 label-font = 3
 
 [module/updates-aurhelper]
-;https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/updates-aurhelper
+;https://github.com/polybar/github/polybar-scripts/tree/master/github/polybar-scripts/updates-aurhelper
 type = custom/script
-exec = ~/polybar-scripts/updates-aurhelper.sh
+exec = ~/github/polybar-scripts/updates-aurhelper.sh
 interval = 55
 
 [module/dmenu]
@@ -153,7 +153,7 @@ type = custom/script
 interval = 1
 format-prefix = "   "
 format = <label>
-exec = python ~/polybar-scripts/spotify_status.py -f '{artist} - {song}'
+exec = python ~/github/polybar-scripts/spotify_status.py -f '{artist} - {song}'
 format-underline = #1db954
 ;control players (optional)
 click-left = playerctl --player=spotify play-pause 
