@@ -702,6 +702,6 @@ if(polybar == true) then
 else
 	os.execute("killall -q polybar")
 end
-awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf")
+-- awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf")
 -- awful.spawn.with_shell("python3 /home/manos/Documents/discordbot/main.py &")
 -- awful.spawn.with_shell("python3 /home/manos/Documents/python/imgdataanalysis/main.py &")
