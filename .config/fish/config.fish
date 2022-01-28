@@ -24,6 +24,7 @@ alias ls="exa"
 
 # VARIABLES
 set PATH "$PATH:$HOME/bin:/usr/local/scripts:/opt"
+set EDITOR "vim"
 
 # PRINTING
 #$HOME/.pokemon-icat/pokemon-icat.sh
