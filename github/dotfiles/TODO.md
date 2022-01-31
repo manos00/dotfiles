@@ -9,7 +9,7 @@ personal todo list for this repo :)
   - [x] alacritty
   - [ ] termite
   - [ ] spicetify
-  - [ ] starship
+  - [x] starship
   - [x] wallpaper (change maybe?)
   - [ ] (polybar?)
   - [x] vim
