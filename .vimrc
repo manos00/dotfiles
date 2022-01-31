@@ -1,4 +1,4 @@
-packadd! dracula
+packadd! dracula/vim
 syntax enable
 colorscheme dracula
 
