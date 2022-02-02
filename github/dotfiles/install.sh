@@ -20,7 +20,7 @@ else
 	conf="/bin/env git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME"
 	# try to put dotfiles in their respective dirs (+redirect sterr to log file)
 	echo "trying to put files in their respective directories"
-	cd $HOME && $conf checkout 2> $LOG
+	cd $HOME && $conf checkout master 2> $LOG
 	if [[ $? == 1 ]];then
 		l=$(wc -l < $LOG)
 		# read first line of log to check if its the one error i accounted for lol
@@ -65,7 +65,11 @@ else
 			fi
 			echo "performing git checkout"
 			echo "moving files into their respective directory"
-			cd $HOME && $conf checkout 2> $LOG
+			cd $HOME && $conf checkout master 2> $LOG
+			echo "done!"
+			# load submodules
+			echo "loading submodules"
+			$conf submodule update --init
 			echo "done!"
 			echo "exiting..."
 			exit 0
