@@ -3,7 +3,6 @@
 # DEPENDENCIES
 # - git
 
-
 # check if dotfiles folder exists already
 if [[ -d "$HOME/github/dotfiles" ]];then
 	echo "Directory $HOME/github/dotfiles already exists."
