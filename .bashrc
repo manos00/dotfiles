@@ -1,6 +1,4 @@
-#
 # ~/.bashrc
-#
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -11,5 +9,7 @@ PS1='[\u@\h \W]\$ '
 
 # Variables
 export PATH="/opt/:/usr/local/scripts/:$PATH"
+export EDITOR="vim"
 
+# Programs
 eval "$(starship init bash)"

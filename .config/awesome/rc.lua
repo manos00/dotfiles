@@ -21,6 +21,11 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable collision
 require("collision")()
 
+-- LuaFileSystem
+if pcall(require, "lfs") then
+	local lfs = require("lfs")
+end
+
 -- Set to true/false to en-/disable polybar
 local polybar = true
 
@@ -395,15 +400,15 @@ globalkeys = gears.table.join(
 
     awful.key({ modkey, "Shift"}, "s", 
     	function ()
-		awful.util.spawn(scripts .. "dmenu/configs.sh")
+		awful.util.spawn(scripts .. "dmenu/searchengines.sh")
     	end,
-    {description = "Browse config files", group = "dmenu scripts"}),
+    {description = "Search for a query in various websites", group = "dmenu scripts"}),
 
     awful.key({ modkey, "Shift"}, "a", 
     	function ()
 		awful.util.spawn(scripts .. "dmenu/audiodev.sh")
     	end,
-    {description = "Quickly change audio output device", group = "dmenu scripts"}),
+    {description = "Change audio output device", group = "dmenu scripts"}),
 
     -- browser
     awful.key({ modkey }, "b", 
@@ -432,7 +437,7 @@ globalkeys = gears.table.join(
     
     awful.key({ modkey }, "F7", 
         function ()
-    		os.execute(scripts .. "chvolawesome +5%") 
+    		os.execute(scripts .. "chvol +5%") 
     	end,
     {description = "Increase volume by 5", group = "sound"}),
 
@@ -702,6 +707,12 @@ if(polybar == true) then
 else
 	os.execute("killall -q polybar")
 end
+
+local scriptdir = "$HOME/.config/awesome/startup/"
+--for file in lfs.dir(scriptdir) do
+--	awful.spawn.with_shell(file)
+--end
+
 -- awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf")
 -- awful.spawn.with_shell("python3 /home/manos/Documents/discordbot/main.py &")
 -- awful.spawn.with_shell("python3 /home/manos/Documents/python/imgdataanalysis/main.py &")

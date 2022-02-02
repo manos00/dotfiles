@@ -6,13 +6,16 @@ personal todo list for this repo :)
 
 - [ ] add consistant color scheme across programs
   - [ ] awesome
-  - [ ] alacritty
+  - [x] alacritty
   - [ ] termite
   - [ ] spicetify
-  - [ ] starship
-  - [ ] wallpaper (change maybe?)
+  - [x] starship
+  - [x] wallpaper (change maybe?)
   - [ ] (polybar?)
+  - [x] vim
+  - [x] fish
 - [ ] add polybar scripts to dotfiles (or make repo public and add link to readme)
+- [ ] update readme (regarding color schemes)
 
 
 ### Done ✓

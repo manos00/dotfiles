@@ -1,0 +1,6 @@
+[submodule ".vim/pack/themes/start/draculaVim"]
+	path = .vim/pack/themes/start/draculaVim
+	url = https://github.com/manos00/draculaVim
+[submodule ".config/alacritty/alacritty"]
+	path = .config/alacritty/alacritty
+	url = https://github.com/dracula/alacritty
