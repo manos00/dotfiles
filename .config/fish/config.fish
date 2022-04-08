@@ -15,15 +15,17 @@ alias config="/usr/bin/env git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOM
 alias p="sudo pacman -S"
 alias cm="cmatrix -s -C cyan" #most important one obviously
 alias randomvid="vlc (random choice (ls | grep -v .jpg | grep -v .png))"
-alias upgrade="yay -Syu"
 alias globfind="sudo find / -name"
 alias gccexe="x86_64-w64-mingw32-gcc"
 alias del="rmtrash"
 alias rm="echo use rmtrash/del"
-alias ls="exa"
+alias ls="ls --color=auto"
+alias mv="mv -i"
+alias cp="cp -i"
+alias handbrake="ghb"
 
 # VARIABLES
-set PATH "$PATH:$HOME/bin:/usr/local/scripts:/opt"
+set PATH "$PATH:$HOME/.local/bin:/usr/local/scripts:/opt"
 set EDITOR "vim"
 
 # PRINTING
