@@ -126,6 +126,22 @@ bindsym XF86AudioPlay exec "playerctl --player=spotify play-pause"
 bindsym XF86AudioPrev exec "playerctl --player=spotify previous"
 bindsym XF86AudioNext exec "playerctl --player=spotify next"
 
+# window decorations
+# borders
+for_window [class=".*"] border pixel 0
+# colors:
+# class                 border  backgr. text    indicator child_border
+#client.focused		#ffffff #285577 #ffffff #2e9ef4	  #ffffff
+#client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+#client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+#client.urgent           #2f343a #900000 #ffffff #900000   #900000
+#client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+#client.background       #ffffff
+
+# gaps
+gaps inner 8
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -202,3 +218,4 @@ bindsym $mod+Control+r mode "resize"
 bar {
         status_command i3blocks
 }
+
