@@ -23,7 +23,7 @@ interval=once
 [wifi]
 command=~/.config/i3blocks/scripts/wifi
 label=wifi:
-INTERFACE=wlp41s0
+INTERFACE=wlp37s0
 interval=30
 
 [volume]
