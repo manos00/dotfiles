@@ -14,7 +14,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 
 -- Notification library
-local naughty = require("naughty")
+--local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
@@ -27,7 +27,7 @@ if pcall(require, "lfs") then
 end
 
 -- Set to true/false to en-/disable polybar
-local polybar = true
+local polybar = false
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -60,7 +60,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "mytheme/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
@@ -205,38 +205,38 @@ awful.screen.connect_for_each_screen(function(s)
     
     -- my config:
     local l = awful.layout.suit --just an alias
-    local icons = "/home/manos/Pictures/icons/"
+    --local icons = "/home/manos/Pictures/icons/"
     -- local names = {"main", "code", "discord + music"}
     -- local layouts = {l.tile.left, l.tile.bottom, l.max}
     -- awful.tag(names, s, layouts)
     
     awful.tag.add("main", {
-    	icon		= icons .. "home.png",
+    	--icon		= icons .. "home.png",
     	layout		= l.tile.left,
     	screen		= s,
     	selected	= true,
     })
     
     awful.tag.add("code", {
-    	icon		= icons .. "code.png",
+    	--icon		= icons .. "code.png",
     	layout		= l.tile.bottom,
     	screen		= s,
     })
     
     awful.tag.add("music", {
-    	icon		= icons .. "spotify.png",
+    	--icon		= icons .. "spotify.png",
     	layout		= l.max,
     	screen		= s,
     })
     
     awful.tag.add("gaming", {
-    	icon		= icons .. "gaming.png",
+    	--icon		= icons .. "gaming.png",
     	layout		= l.max,
     	screen		= s,
     })
     
-    awful.tag.add("discord", {
-    	icon		= icons .. "discord.png",
+awful.tag.add("discord", {
+	--icon		= icons .. "discord.png",
     	layout		= l.max,
     	screen		= s,
     })
@@ -702,6 +702,7 @@ beautiful.useless_gap = 5
 
 -- Autostart Applications
 awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("/usr/bin/dunst")
 if(polybar == true) then
 	awful.spawn.with_shell("$HOME/.config/polybar/launch")
 else

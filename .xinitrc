@@ -34,8 +34,8 @@ picom --config $HOME/.config/picom/picom.conf &
 
 PROGRAMS=("numlockx" "light-locker")
 for PROGRAM in ${PROGRAMS[@]}; do
-	if [ -n "$(which $PROGRAM)" ]; then
-		$PROGRAM & disown
+	if command -v $PROGRAM; then
+		$PROGRAM &
 	fi
 done
 
@@ -43,4 +43,4 @@ done
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORIT_
 
 # start wm
-exec awesome
+exec i3
